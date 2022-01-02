@@ -1,0 +1,96 @@
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Projects</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <table class="table table-striped projects">
+              <thead>
+                  <tr>
+                      <th>
+                          ID
+                      </th>
+                      <th>
+                          Customer ID
+                      </th>
+                      <th>
+                          Room ID
+                      </th>
+                      <th>
+                          Date
+                      </th>
+                      <th>
+                        Time
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Message
+                    </th>
+
+                      <th style="width: 8%" class="text-center">
+                          Action
+                      </th>
+                      
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let order of orders">
+                      <td>
+                          {{order._id}}
+                      </td>
+                      <td>
+                          
+                              {{order.custId}}
+                          
+                      </td>
+                      <td>
+                            {{order.roomId}}
+                      </td>
+                      <td class="project-state">
+                        {{order.date}}                      
+                    </td>
+                    <td class="time">
+                        {{order.time}}                      
+                    </td>
+                    <td class="status">
+                        {{order.status}}                      
+                    </td>
+                    <td class="message">
+                        {{order.rejectedMessage}}                      
+                    </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-success btn-sm" (click)="approveOrder(order)">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Approve
+                          </a>
+                          <a class="btn btn-danger btn-sm" (click)="rejectOrder(order)">
+                            <i class="fas fa-trash">
+                            </i>
+                            Reject
+                        </a>
+                          <a class="btn btn-danger btn-sm" (click)="deleteOrder(order)">
+                              <i class="fas fa-trash">
+                              </i>
+                              Delete
+                          </a>
+                      </td>
+                  </tr>
+                  
+              </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
